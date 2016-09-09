@@ -1,5 +1,3 @@
-var myCode = function() {
+$(document).ready(function() {
 	$(".warning").hide().show("slow");
-}
-
-$(document).ready(myCode);
+});
