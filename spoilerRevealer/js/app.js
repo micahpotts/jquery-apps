@@ -1,3 +1,1 @@
-$(function() {
-	$(".warning").hide().show("slow");
-});
+$(".warning").hide().show("slow");
