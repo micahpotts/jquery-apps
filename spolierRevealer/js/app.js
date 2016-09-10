@@ -10,5 +10,6 @@ $(".spoiler button").click(function() {
 	//show spoiler
 	$(".spoiler span").show();
 	//get rid of button
+	$(this).remove();
 });
 	
