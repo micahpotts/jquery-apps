@@ -9,7 +9,11 @@ $("#menu a").each(function() {
 	var $anchor = $(this);
 	//create an option
 	var $option = $("<option></option>");
-	
+
+	//deal with selected options depending on current page
+	if($anchor.parent().hasClass("selected")) {
+		$option.prop("selected", true);
+	}
 	//option's value is href of the link
 	$option.val($anchor.attr("href"));
 	//option text is text of the link
@@ -27,6 +31,4 @@ $button.click(function() {
 	window.location = $select.val();
 });
 	
-//modify css to hide big nav on small widths and show button and select
-	//modify css to hide select and button on larger widths
-//deal with selected options depending on current page
+
