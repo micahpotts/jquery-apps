@@ -19,8 +19,14 @@ $("#menu a").each(function() {
 });
 	
 //create button
+var $button = $("<button>Go</button>");
+$("#menu").append($button);
 //bind click to button
+$button.click(function() {
 	//go to select's location
+	window.location = $select.val();
+});
+	
 //modify css to hide big nav on small widths and show button and select
 	//modify css to hide select and button on larger widths
 //deal with selected options depending on current page
