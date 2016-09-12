@@ -6,20 +6,32 @@ var $confirmPassword = $("#confirm_password");
 //hide hints
 $("form span").hide();
 
+function isPasswordValid() {
+	return $password.val().length > 8;
+}
+
+function arePasswordsMatching() {
+	return $password.val() === $confirmPassword.val();
+}
+
+function canSubmit() {
+	return isPasswordValid() && arePasswordsMatching();
+}
+
 function passwordEvent() {
 	//find out if password is valid
-	if ($password.val().length > 8) {
+	if (isPasswordValid()) {
 		//hide hint if valid
 		$password.next().hide();
 	} else {
 		//else show hint
-		$(this).next().show();
+		$password.next().show();
 	}
 }
 
 function confirmPasswordEvent() {
 	//find out if password and confirmation match
-	if ($password.val() === $confirmPassword.val()) {
+	if(arePasswordsMatching()) {
 		//hide hint if matched
 		$confirmPassword.next().hide();
 	} else {
@@ -28,10 +40,14 @@ function confirmPasswordEvent() {
 	}	
 }
 
-//when event happens on password input
-$password.focus(passwordEvent).keyup(passwordEvent).focus(confirmPasswordEvent).keyup(confirmPasswordEvent);
-	
+function enableSubmitEvent() {
+	$("#submit").prop("disabled", !canSubmit());
+}
 
-//when event happens on confirmation input
-$confirmPassword.focus(confirmPasswordEvent).keyup(confirmPasswordEvent);
+//when event happens on password input
+$password.focus(passwordEvent).keyup(passwordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
 	
+//when event happens on confirmation input
+$confirmPassword.focus(confirmPasswordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
+
+enableSubmitEvent():	
