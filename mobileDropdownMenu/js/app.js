@@ -22,18 +22,7 @@ $("#menu a").each(function() {
 	$select.append($option);
 });
 	
-		/////////OLD CODE From Nav Button
-		//create button
-		//var $button = $("<button>Go</button>");
-		//$("#menu").append($button);
-
-		//bind click to button
-		//$button.click(function() {
-			//go to select's location
-		//	window.location = $select.val();
-		//});
-	
-////////NEW CODE Removing Nav Button
+//////// Removing Nav Button
 //Bind change listener to the select
 $select.change(function() {
 	//Go to the select's location
