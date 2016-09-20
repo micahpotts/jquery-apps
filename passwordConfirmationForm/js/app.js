@@ -50,4 +50,4 @@ $password.focus(passwordEvent).keyup(passwordEvent).keyup(confirmPasswordEvent).
 //when event happens on confirmation input
 $confirmPassword.focus(confirmPasswordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
 
-enableSubmitEvent():	
+enableSubmitEvent();	
